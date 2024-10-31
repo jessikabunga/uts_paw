@@ -13,7 +13,7 @@
         }
         header {
             background: rgb(192, 184, 73);
-            background-color: rgb(192, 184, 73);
+            background-color: #e8d1a7;
             padding: 1px 0;
             text-align: center;
             font-family: Arial, sans-serif;
@@ -25,7 +25,7 @@
 
         h1 {
             font-family: Lucida Bright;
-            color: #d8d6c6;
+            color: #743014;
             margin-left: 10px;
         }
         nav {
@@ -34,34 +34,25 @@
             margin: 20px;
         }
         nav a {
-            color: #333;
+            color: #e8d1a7;
             text-decoration: none;
             margin: 0 10px;
             padding: 10px 20px;
-            background-color: #ddd;
+            background-color: #743014;
             border-radius: 5px;
         }
         nav a:hover {
-            background-color: #bbb;
+            background-color: #8c523b;
         }
         .container {
             width: 80%;
             margin: auto;
         }
-        footer {
-            background-color: rgb(192, 184, 73);
-            color: black;
-            text-align: center;
-            padding: 1px 0;
-            position: fixed;
-            width: 100%;
-            bottom: 0;
-        }
     </style>
 </head>
 <body>
 <header>
-    <h1>Art Exhibition</h1>
+    <h1 style="color: #743014">Art Exhibition</h1>
     <nav>
         <a href="index.php">Home</a>
         <a href="insert_art.php">Add Art</a>
