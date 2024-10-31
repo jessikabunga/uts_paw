@@ -5,8 +5,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $username = $_POST['username'];
     $name = $_POST['name'];
     $password = $_POST['password'];
+    $hash_pw = password_hash($password, PASSWORD_DEFAULT);
 
-    if ($conn->query("INSERT INTO users (username, name, password) VALUES ('$username', '$name', '$password')") === TRUE) {
+    $sql = $conn->prepare("INSERT INTO users (username, name, password) VALUES (?, ?, ?)");
+    $sql->bind_param("sss", $username, $name, $hash_pw);
+
+    if ($sql->execute()) {
         header('Location: login.php');
     } else {
         $error = "Terjadi kesalahan: " . $conn->error;
@@ -104,6 +108,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <?php endif; ?>
         <form action="register.php" method="post">
             <input type="text" name="username" placeholder="Username" required>
+            <input type="text" name="name" placeholder="Full Name" required>
             <input type="password" name="password" placeholder="Password" required>
             <button type="submit" class="btn">Sign Up</button>
         </form>
